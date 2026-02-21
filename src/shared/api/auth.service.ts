@@ -1,6 +1,7 @@
 import type { AxiosInstance, AxiosRequestConfig } from "axios";
 
 import { api } from "./api";
+import { z } from "zod";
 
 type LoginResponse = {
   accessToken: string;
@@ -22,8 +23,9 @@ const createAuthApiService = ($api: AxiosInstance) => {
     login: async ({
       data,
       config,
-    }: RequestConfig<LoginRequestData>): Promise<LoginResponse> => {
-      return await $api.post("/auth/login", data, config);
+    }: RequestConfig<LoginRequestData>): Promise<string> => {
+      const response = await $api.post("/auth/login", data, config);
+      return z.parse(z.string(), response.data.token);
     },
   };
 };

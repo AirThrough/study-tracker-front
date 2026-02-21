@@ -7,8 +7,13 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation } from "@tanstack/react-query";
 import { authApiService } from "~/shared/api/auth.service";
 import { toast } from "sonner";
+import { useNavigate } from "react-router-dom";
+import { useAuthStore } from "~/app/model/store/auth/auth.store";
 
 export const useLoginForm = () => {
+  const authStore = useAuthStore();
+  const { setIsAuthenticated } = authStore;
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -22,9 +27,11 @@ export const useLoginForm = () => {
     mutationFn: async (data: LoginFormSchema) => {
       return await authApiService.login({ data });
     },
-    onSuccess: (response) => {
-      localStorage.setItem("accessToken", response.accessToken);
+    onSuccess: (token) => {
+      localStorage.setItem("accessToken", token);
+      setIsAuthenticated(true);
       toast.success("Login successful");
+      navigate("/");
     },
     onError: (error) => {
       toast.error(error.message);
