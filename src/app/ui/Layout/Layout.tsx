@@ -7,7 +7,10 @@ export const Layout = () => {
   return (
     <div>
       {isAuthenticated ? (
-        <Outlet />
+        <div>
+          <Header />
+          <Outlet />
+        </div>
       ) : (
         <div>
           <Header />

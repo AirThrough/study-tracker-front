@@ -4,6 +4,7 @@ const PLACEHOLDERS_PREFIX = `${PREFIX}.placeholders`;
 const ACTIONS_PREFIX = `${PREFIX}.actions`;
 const TITLES_PREFIX = `${PREFIX}.titles`;
 const NOTIFICATIONS_PREFIX = `${PREFIX}.notifications`;
+const LOADERS_PREFIX = `${PREFIX}.loaders`;
 
 export const SHARED_KEYS = {
   FIELDS: {
@@ -22,5 +23,8 @@ export const SHARED_KEYS = {
   },
   NOTIFICATIONS: {
     LOGIN_SUCCESS: `${NOTIFICATIONS_PREFIX}.login_success`,
+  },
+  LOADERS: {
+    LOADING: `${LOADERS_PREFIX}.loading`,
   },
 };

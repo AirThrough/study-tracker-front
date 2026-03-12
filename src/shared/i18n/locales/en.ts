@@ -17,5 +17,8 @@ export default {
     notifications: {
       login_success: "Login successful",
     },
+    loaders: {
+      loading: "Loading...",
+    },
   },
 } as const;
