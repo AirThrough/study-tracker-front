@@ -6,7 +6,10 @@ export const Header = () => {
       <div>
         <p className="text-[22px] font-bold font-cursive">Sync & Track</p>
       </div>
-      <LanguagePicker />
+      <div className="flex items-center gap-2">
+        <WeatherIndicator />
+        <LanguagePicker />
+      </div>
     </header>
   );
 };
