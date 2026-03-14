@@ -21,27 +21,8 @@ type Coordinates = {
 const weatherQuery = {
   latitude: 57.6299,
   longitude: 39.8737,
-  hourly: [
-    "temperature_2m",
-    "weather_code",
-    "rain",
-    "showers",
-    "precipitation",
-    "precipitation_probability",
-    "apparent_temperature",
-    "dew_point_2m",
-    "snowfall",
-    "snow_depth",
-    "relative_humidity_2m",
-  ],
-  current: [
-    "temperature_2m",
-    "relative_humidity_2m",
-    "rain",
-    "showers",
-    "snowfall",
-    "precipitation",
-  ],
+  hourly: ["rain"],
+  current: ["rain"],
   forecast_days: 3,
 };
 
